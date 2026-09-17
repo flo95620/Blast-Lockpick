@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blast Lockpick - Skyrim Style</title>
+    <!-- Polices cinématiques et médiévales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lockpick-app">
+        <!-- Fond immersif avec vignette sombre -->
+        <div class="vignette-overlay"></div>
+
+        <!-- En-tête Skyrim -->
+        <header class="skyrim-header">
+            <div class="header-line"></div>
+            <div class="header-content">
+                <span class="title-sub">CROCHETAGE</span>
+                <h1 class="title-main" id="difficulty-label">SERRURE : MOYENNE</h1>
+            </div>
+            <div class="header-line"></div>
+        </header>
+
+        <!-- Zone Principale de la Serrure -->
+        <main class="lock-wrapper">
+            <div id="lock-container" class="lock-container">
+                <!-- Plaque extérieure forgée -->
+                <div class="outer-plate">
+                    <div class="metal-rivet rivet-1"></div>
+                    <div class="metal-rivet rivet-2"></div>
+                    <div class="metal-rivet rivet-3"></div>
+                    <div class="metal-rivet rivet-4"></div>
+                    <div class="metal-ring-outer"></div>
+                    <div class="metal-ring-inner"></div>
+
+                    <!-- Barillet rotatif central (tourne avec Z/W/Espace) -->
+                    <div id="lock-cylinder" class="lock-cylinder">
+                        <div class="brass-texture"></div>
+                        <div class="cylinder-bevel"></div>
+                        <div class="keyhole-housing">
+                            <div class="keyhole"></div>
+                        </div>
+
+                        <!-- Clé de tension (insérée dans le bas de la fente, tourne avec le barillet) -->
+                        <div id="tension-wrench" class="tension-wrench">
+                            <div class="wrench-handle"></div>
+                            <div class="wrench-tip"></div>
+                        </div>
+                    </div>
+
+                    <!-- Crochet (orienté avec la souris, pivote au centre de la serrure) -->
+                    <div id="pick-assembly" class="pick-assembly">
+                        <div id="pick-body" class="pick-body">
+                            <div class="pick-handle"></div>
+                            <div class="pick-shaft"></div>
+                            <div class="pick-tip"></div>
+                        </div>
+                        <!-- Débris de casse du crochet -->
+                        <div id="pick-broken-tip" class="pick-broken-piece"></div>
+                    </div>
+                </div>
+
+                <!-- Particules de tension / friction métallique -->
+                <div id="spark-container" class="spark-container"></div>
+            </div>
+        </main>
+
+        <!-- Notification de résultat (Succès / Échec) -->
+        <div id="status-banner" class="status-banner hidden">
+            <span id="status-text">SERRURE DÉVERROUILLÉE</span>
+        </div>
+
+        <!-- Pied de page : Touches & Informations -->
+        <footer class="skyrim-footer">
+            <div class="footer-controls">
+                <div class="control-badge">
+                    <span class="key-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M11 1.07C7.05 1.56 4 4.92 4 9v6c0 4.42 3.58 8 8 8s8-3.58 8-8V9c0-4.08-3.05-7.44-7-7.93V8h-2V1.07zM13 10h5v5c0 3.31-2.69 6-6 6s-6-2.69-6-6v-5h5V1.07c.33-.04.66-.07 1-.07s.67.03 1 .07V10z"/></svg></span>
+                    <span class="control-desc">Orienter le crochet</span>
+                </div>
+                <div class="control-badge">
+                    <span class="key-icon key-kbd">Z</span>
+                    <span class="key-sep">/</span>
+                    <span class="key-icon key-kbd">W</span>
+                    <span class="key-sep">/</span>
+                    <span class="key-icon key-kbd key-space">ESPACE</span>
+                    <span class="control-desc">Tourner la serrure</span>
+                </div>
+                <div class="control-badge">
+                    <span class="key-icon key-kbd">ÉCHAP</span>
+                    <span class="control-desc">Abandonner</span>
+                </div>
+            </div>
+
+            <!-- Compteur de crochets restants -->
+            <div class="footer-stats">
+                <div class="picks-counter">
+                    <span class="picks-label">CROCHETS RESTANTS</span>
+                    <div class="picks-display">
+                        <span id="picks-count">3</span>
+                        <div id="picks-icons" class="picks-icons"></div>
+                    </div>
+                </div>
+
+                <!-- Bouton Quitter conforme aux spécifications -->
+                <button id="quitter" class="skyrim-btn" title="Abandonner et fermer">Quitter</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="api.js"></script>
+    <script src="audio.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
